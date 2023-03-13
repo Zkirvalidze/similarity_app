@@ -8,7 +8,8 @@ import {
 import { Laptop, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { FC } from 'react';
-import Button from './ui/Button';
+import { Button } from './ui/Button';
+
 
 interface ThemeToggleProps {}
 

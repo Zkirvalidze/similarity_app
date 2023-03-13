@@ -1,8 +1,9 @@
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
-import { ButtonHTMLAttributes, FC, forwardRef } from 'react';
 import { Loader2 } from 'lucide-react';
-export const buttonVariants = cva(
+import * as React from 'react';
+
+const buttonVariants = cva(
   'active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900',
   {
     variants: {
@@ -30,13 +31,15 @@ export const buttonVariants = cva(
     },
   }
 );
-interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
 }
-const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, isLoading, size, children, variant, ...props }, ref) => {
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, children, variant, isLoading, size, ...props }, ref) => {
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
@@ -52,4 +55,4 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = 'Button';
 
-export default Button;
+export { Button, buttonVariants };
