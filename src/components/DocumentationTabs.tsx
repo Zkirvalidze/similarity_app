@@ -4,7 +4,7 @@
 import { nodejs, python } from '@/helpers/documentation-code';
 import { FC } from 'react';
 import SimpleBar from 'simplebar-react';
-import Code from './Code';
+import Code from './ui/Code';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/Tabs';
 import 'simplebar-react/dist/simplebar.min.css'
 const DocumentationTabs: FC = () => {
